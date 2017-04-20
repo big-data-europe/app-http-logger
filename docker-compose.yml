@@ -22,8 +22,17 @@ services:
     links:
       - database:database
     volumes:
-      - ./containers:/usrc/src/app/containers/
-      - ./mu-docker-event-query/src:/app
+      - ./containers:/usr/src/app/containers/
+      - ./mu-docker-event-query/src:/app/
     environment:
-      MODE: 'development'
       SLEEP_PERIOD: '10'
+  docker-watcher:
+    build: ./mu-docker-watcher
+    volumes:
+      - ./mu-docker-watcher:/app
+      - ./mu-docker-watcher/supervisord.conf:/etc/supervisord.conf
+      - ./containers:/app/containers
+      - ./pcap:/app/pcap/
+    network_mode: host
+    environment:
+      PCAP_READ_DIR: '/pcap'
