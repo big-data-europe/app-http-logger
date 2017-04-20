@@ -23,7 +23,6 @@ services:
       - database:database
     volumes:
       - ./containers:/usrc/src/app/containers/
-      - /var/run/docker.sock:/var/run/docker.sock
       - ./mu-docker-event-query/src:/app
     environment:
       MODE: 'development'
