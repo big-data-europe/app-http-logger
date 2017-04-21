@@ -7,3 +7,6 @@
 [submodule "mu-docker-event-query"]
 	path = mu-docker-event-query
 	url = https://github.com/fr0gs/mu-docker-event-query.git
+[submodule "mu-har-transformation"]
+	path = mu-har-transformation
+	url = https://github.com/fr0gs/mu-har-transformation.git
