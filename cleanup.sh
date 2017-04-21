@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo rm -rf containers/ pcap/
+sudo rm -rf containers/ pcap/ har/
