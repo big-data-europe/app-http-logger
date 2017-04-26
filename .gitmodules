@@ -3,10 +3,10 @@
 	url = https://github.com/big-data-europe/mu-swarm-logger-service.git
 [submodule "mu-docker-watcher"]
 	path = mu-docker-watcher
-	url = https://github.com/fr0gs/mu-docker-watcher.git
+	url = https://github.com/big-data-europe/mu-docker-watcher.git
 [submodule "mu-docker-event-query"]
 	path = mu-docker-event-query
-	url = https://github.com/fr0gs/mu-docker-event-query.git
+	url = https://github.com/big-data-europe/mu-docker-event-query.git
 [submodule "mu-har-transformation"]
 	path = mu-har-transformation
-	url = https://github.com/fr0gs/mu-har-transformation.git
+	url = https://github.com/big-data-europe/mu-har-transformation.git
