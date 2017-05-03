@@ -38,7 +38,7 @@ services:
     volumes:
       - ./pcap:/app/pcap
       - ./har:/app/har
-      - ./docker-compose-ETMS.yml:/app/docker-compose.yml
+      - ./containers:/app/containers
     links:
       - elasticsearch:elasticsearch
   elasticsearch:
