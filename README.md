@@ -15,9 +15,14 @@ Mu-bde-logging relies on four microservices that act as a pipeline in the data c
 ## Prerequisites
 
 * Run the **mu-bde-logging** project before any of the containers you wish to log are started. **mu-bde-logging** does not take old events into account.
-* For every new started container running with th *"logging=true"* flag, the logging platform will start observing the network traffic it generates.
+* For every new started container running with the *"logging=true"* label, the logging platform will start observing the network traffic it generates.  The following code-snippet can be added to each container in your docker-compose.yml which does HTTP network trafic.
+
+```
+    labels:
+      - "logging=true"
+```
 
 ## Usage
 
 * Run ```docker-compose up```.
-* After some traffic has been logged, visit *http://localhost:5601*, and in Kibana specify the index *hars* to start visualizing your data.
+* After some traffic has been logged, visit *http://localhost:5601*, and in Kibana specify the index *hars** to start visualizing your data.
