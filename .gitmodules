@@ -4,6 +4,3 @@
 [submodule "mu-docker-watcher"]
 	path = mu-docker-watcher
 	url = https://github.com/big-data-europe/mu-docker-watcher.git
-[submodule "mu-har-transformation"]
-	path = mu-har-transformation
-	url = https://github.com/big-data-europe/mu-har-transformation.git

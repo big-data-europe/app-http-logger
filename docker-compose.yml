@@ -34,7 +34,7 @@ services:
     environment:
       PCAP_READ_DIR: '/pcap'
   har-transformation:
-    build: ./mu-har-transformation
+    image: bde2020/mu-har-transformation
     volumes:
       - ./pcap:/app/pcap
       - ./har:/app/har
