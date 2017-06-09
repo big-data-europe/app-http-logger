@@ -1,6 +1,3 @@
-[submodule "mu-swarm-logger-service"]
-	path = mu-swarm-logger-service
-	url = https://github.com/big-data-europe/mu-swarm-logger-service.git
 [submodule "mu-docker-watcher"]
 	path = mu-docker-watcher
 	url = https://github.com/big-data-europe/mu-docker-watcher.git

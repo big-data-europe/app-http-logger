@@ -4,12 +4,11 @@
 version: "2"
 services:
   swarm-logger:
-    build: ./mu-swarm-logger-service
+    image: bde2020/mu-swarm-logger-service
     links:
       - database:database
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: /src/run.py --debug sparql
   database:
     image: tenforce/virtuoso:1.1.1-virtuoso7.2.4
     environment:
