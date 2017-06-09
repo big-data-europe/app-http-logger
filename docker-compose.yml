@@ -16,7 +16,7 @@ services:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
   event-query:
-    build: ./mu-docker-event-query
+    image: bde2020/mu-docker-event-query
     links:
       - database:database
     volumes:
