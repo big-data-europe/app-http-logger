@@ -20,7 +20,6 @@ services:
       - database:database
     volumes:
       - ./containers:/usr/src/app/containers/
-      - ./mu-docker-event-query/src:/app/
     environment:
       SLEEP_PERIOD: '10'
   docker-watcher:
@@ -56,3 +55,12 @@ services:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     links:
       - elasticsearch:elasticsearch
+  ## New Kibana needs new elasticsearch.  Should check if we can upgrade.
+  # newKibana:
+  #   image: kibana:5
+  #   ports:
+  #     - "5604:5601"
+  #   environment:
+  #     - ELASTICSEARCH_URL=http://elasticsearch:9200
+  #   links:
+  #     - elasticsearch:elasticsearch
