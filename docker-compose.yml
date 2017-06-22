@@ -38,8 +38,11 @@ services:
       - ./pcap:/app/pcap
       - ./har:/app/har
       - ./containers:/app/containers
+      - ./backups:/app/backups
     links:
       - elasticsearch:elasticsearch
+    environment:
+      BU_DIR: "/app/backups"
   elasticsearch:
     image: elasticsearch:2
     command: elasticsearch -Des.network.host=0.0.0.0
