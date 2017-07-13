@@ -43,24 +43,15 @@ services:
     environment:
       BU_DIR: "/app/backups"
   elasticsearch:
-    image: elasticsearch:2
-    command: elasticsearch -Des.network.host=0.0.0.0
+    image: elasticsearch:5.5.0
+    command: elasticsearch -E network.host=0.0.0.0
     ports:
       - "9200:9200"
   kibana:
-    image: kibana:4
+    image: kibana:5
     ports:
       - "5601:5601"
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     links:
       - elasticsearch:elasticsearch
-  ## New Kibana needs new elasticsearch.  Should check if we can upgrade.
-  # newKibana:
-  #   image: kibana:5
-  #   ports:
-  #     - "5604:5601"
-  #   environment:
-  #     - ELASTICSEARCH_URL=http://elasticsearch:9200
-  #   links:
-  #     - elasticsearch:elasticsearch

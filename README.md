@@ -26,3 +26,22 @@ Mu-bde-logging relies on four microservices that act as a pipeline in the data c
 
 * Run ```docker-compose up```.
 * After some traffic has been logged, visit *http://localhost:5601*, and in Kibana specify the index *hars** to start visualizing your data.
+
+
+## UPDATE TO ELASTICSERACH 5.5!
+
+In order to use **ElasticSearch 5.5** you  will most likely need to increase the amount of *mmap* counts that the operating system can make per process. Mmap counts are the amount of file descriptors that the internal **Lucene** engine will load into memory. Basically, the amount of files that are mapped into memory.
+
+This number is highly dependant in your operating system, and normally is quite low, so if you happen to see this error:
+
+```
+elasticsearch_1       | ERROR: [1] bootstrap checks failed
+elasticsearch_1       | [1]: max virtual memory areas vm.max_map_count [65000] is too low, increase to at least [262144]
+```
+
+
+This command should solve it:
+
+```sh
+sudo sysctl -w vm.max_map_count=262144
+```
