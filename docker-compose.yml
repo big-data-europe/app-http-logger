@@ -23,7 +23,7 @@ services:
     environment:
       SLEEP_PERIOD: '10'
   docker-watcher:
-    build: bde2020/mu-docker-watcher-service
+    image: bde2020/mu-docker-watcher-service
     volumes:
       - ./containers:/app/containers
       - ./pcap:/app/pcap/
