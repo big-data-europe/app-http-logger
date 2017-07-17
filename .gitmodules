@@ -1,3 +1,0 @@
-[submodule "mu-docker-watcher"]
-	path = mu-docker-watcher
-	url = https://github.com/big-data-europe/mu-docker-watcher.git
