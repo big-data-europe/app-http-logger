@@ -15,7 +15,7 @@ services:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
   event-query:
-    image: bde2020/mu-docker-event-query
+    image: bde2020/mu-event-query-service
     links:
       - database:database
     volumes:
@@ -23,16 +23,15 @@ services:
     environment:
       SLEEP_PERIOD: '10'
   docker-watcher:
-    build: ./mu-docker-watcher
+    build: bde2020/mu-docker-watcher-service
     volumes:
-      - ./mu-docker-watcher/supervisord.conf:/etc/supervisord.conf
       - ./containers:/app/containers
       - ./pcap:/app/pcap/
     network_mode: host
     environment:
       PCAP_READ_DIR: '/pcap'
   har-transformation:
-    image: bde2020/mu-har-transformation
+    image: bde2020/mu-har-transformation-service
     volumes:
       - ./pcap:/app/pcap
       - ./har:/app/har
