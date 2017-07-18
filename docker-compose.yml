@@ -25,6 +25,7 @@ services:
   docker-watcher:
     image: bde2020/mu-docker-watcher-service
     volumes:
+      - ./config/supervisord.conf:/etc/supervisord.conf
       - ./containers:/app/containers
       - ./pcap:/app/pcap/
     network_mode: host
