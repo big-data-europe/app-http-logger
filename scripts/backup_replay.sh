@@ -62,7 +62,7 @@ if [[ "${BASH_SOURCE[0]}" = "$0" ]]; then
     fi
 
     # Poll ElasticSearch until it is up and we can post hars to it.
-    elasticsearch_ip=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mubdelogging_elasticsearch_1)
+    elasticsearch_ip=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' apphttplogger_elasticsearch_1)
 
     info "ElasticSearch container ip: ${elasticsearch_ip}"
 
