@@ -43,9 +43,27 @@ Instructions on to export & import the dashboards can be found in the [official 
 
 ## UPDATE TO ELASTICSERACH 5.5!
 
-In order to use **ElasticSearch 5.5** you  will most likely need to increase the amount of *mmap* counts that the operating system can make per process. Mmap counts are the amount of file descriptors that the internal **Lucene** engine will load into memory. Basically, the amount of files that are mapped into memory.
+In order to use ElasticSearch & Kibana 5 and enjoy the new UI and features, you need to update both services in **docker-compose.yml**:
 
-This number is highly dependant in your operating system, and normally is quite low, so if you happen to see this error:
+```yml
+elasticsearch:
+  image: elasticsearch:5.5.0
+  command: elasticsearch -E network.host=0.0.0.0
+  ports:
+    - "9200:9200"
+kibana:
+  image: kibana:5.5
+  ports:
+    - "5601:5601"
+  environment:
+    - ELASTICSEARCH_URL=http://elasticsearch:9200
+  links:
+    - elasticsearch:elasticsearch
+```
+
+
+
+In order to use **ElasticSearch 5.5** you  will most likely need to increase the amount of *mmap* counts that the operating system can make per process. Mmap counts are the amount of file descriptors that the internal **Lucene** engine will load into memory. Basically, the amount of files that are mapped into memory. This number is highly dependant in your operating system, and normally is quite low, so if you happen to see this error:
 
 ```
 elasticsearch_1       | ERROR: [1] bootstrap checks failed
