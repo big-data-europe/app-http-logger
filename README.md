@@ -12,6 +12,9 @@ Provide out-of-the-box automatic logging of your running docker containers, and 
 * **mu-har-transformation-service**: watches the .pcap files created by the **mu-docker-watcher-service** microservice and transforms them into .har (json) format, enriching each file with additional data. Also, data is pushed onto an **ElasticSearch** instance, making it ready to be queried.
 
 
+  ![app-http-logger.png](app-http-logger.png)
+
+
 ## Prerequisites
 
 * Run the **app-http-logger** project before any of the containers you wish to log are started. **app-http-logger** does not take old events into account.
@@ -25,7 +28,7 @@ Provide out-of-the-box automatic logging of your running docker containers, and 
 ## Usage
 
 * Run ```docker-compose up```.
-* After some traffic has been logged, visit *http://localhost:5601*, and in Kibana specify the index *hars* to start visualizing your data.
+* After some traffic has been logged, visit *http://localhost:5601*, and in Kibana specify the index "**har***" to start visualizing your data. This is a simple decision taken while developing the **mu-har-transformation-service**. Data is posted into an index called **hars** and an etype called **har**, as it can be seen [in this link](https://github.com/big-data-europe/mu-har-transformation-service/blob/master/pcap-har-watcher.py#L208).
 
 
 
@@ -41,7 +44,7 @@ Instructions on to export & import the dashboards can be found in the [official 
 
 
 
-## UPDATE TO ELASTICSERACH 5.5!
+## UPDATE TO ELASTICSEARCH 5.5!
 
 In order to use ElasticSearch & Kibana 5 and enjoy the new UI and features, you need to update both services in **docker-compose.yml**:
 
